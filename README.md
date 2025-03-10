@@ -1,10 +1,10 @@
-# NFSePHP - Nota Carioca
+# NFSePHP - Saquarema
 
-Lib to communicate with SOAP web services and generate NFS-e (Nota Fiscal de Serviços Eletrônica). Support to Nota Carioca only as of today.
+Lib to communicate with SOAP web services and generate NFS-e (Nota Fiscal de Serviços Eletrônica). Under development. Still not Working!
 
 ### Operations Supported
 
--   Nota Carioca
+-   Saquarema
     -   GerarNfse
     -   ConsultarNfsePorRps
     -   ConsultarNfse
@@ -13,14 +13,14 @@ Lib to communicate with SOAP web services and generate NFS-e (Nota Fiscal de Ser
 # Install
 
 ```bash
-composer require pedrocasado/nfse-php
+composer require andreataide/nfseSaquarema-php
 ```
 
 # Usage
 
 Check examples/ folder
 
-You must have a valid certificate to use Nota Carioca staging environment.
+You must have a valid certificate to use NFSe staging environment.
 
 ### GerarNfse
 
