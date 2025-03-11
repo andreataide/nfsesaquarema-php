@@ -25,8 +25,8 @@ You must have a valid certificate to use NFSe staging environment.
 ### GerarNfse
 
 ```php
-use NFSePHP\NotaCarioca\NotaCariocaFactory;
-use NFSePHP\NotaCarioca\SoapHandler;
+use NFSePHP\NotaSaquarema\NotaSaquaremaFactory;
+use NFSePHP\NotaSaquarema\SoapHandler;
 
 $rps = [
     'IdentificacaoRps' => [
@@ -83,8 +83,8 @@ $rps = [
     ],
 
     'Servico' => [
-        'ItemListaServico' => '1002', // First 4 digits - https://notacarioca.rio.gov.br/files/leis/Resolucao_2617_2010_anexo2.pdf
-        'CodigoTributacaoMunicipio' => '100203', // 6 digits - https://notacarioca.rio.gov.br/files/leis/Resolucao_2617_2010_anexo2.pdf
+        'ItemListaServico' => '1002', // First 4 digits
+        'CodigoTributacaoMunicipio' => '100203', // 6 digits
         'Discriminacao' => 'Pedido #1111 - Itens: #123 , #124',
         'CodigoMunicipio' => 1111111,
         'Valores' => [
