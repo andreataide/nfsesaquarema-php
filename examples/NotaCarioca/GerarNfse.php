@@ -2,8 +2,8 @@
 
 require __DIR__.'/../../vendor/autoload.php';
 
-use NFSePHP\NotaCarioca\NotaCariocaOperationFactory;
-use NFSePHP\NotaCarioca\SoapHandler;
+use NFSePHP\NotaSaquarema\NotaSaquaremaOperationFactory;
+use NFSePHP\NotaSaquarema\SoapHandler;
 
 $rps = [
     'IdentificacaoRps' => [
@@ -97,7 +97,7 @@ $rps = [
 ];
 
 $env = 'dev'; // dev - prod
-$gerarNfsOperation = (new NotaCariocaOperationFactory())->createOperation('gerar-nfse', $env, $rps);
+$gerarNfsOperation = (new NotaSaquaremaOperationFactory())->createOperation('gerar-nfse', $env, $rps);
 
 $soapHandler = new SoapHandler(['cert_path' => '/path/to/valid/cert.pfx', 'cert_pass' => 'certpassword']);
 

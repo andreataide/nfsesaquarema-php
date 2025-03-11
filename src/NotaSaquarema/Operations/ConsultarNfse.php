@@ -1,15 +1,15 @@
 <?php
 
-namespace NFSePHP\NotaCarioca\Operations;
+namespace NFSePHP\NotaSaquarema\Operations;
 
 use Garden\Schema\Schema;
 use Garden\Schema\ValidationException;
-use NFSePHP\NotaCarioca\NotaCariocaOperationBase;
+use NFSePHP\NotaSaquarema\NotaSaquaremaOperationBase;
 
 /**
  * Class to generate XML to the ConsultarNfse Web Service operation.
  */
-class ConsultarNfse extends NotaCariocaOperationBase
+class ConsultarNfse extends NotaSaquaremaOperationBase
 {
     public function __construct(string $env = 'dev', array $rps = [])
     {
@@ -95,7 +95,7 @@ class ConsultarNfse extends NotaCariocaOperationBase
         $xml = $this->getEncoder()->encode($rps, 'xml', ['xml_root_node_name' => 'rootnode', 'remove_empty_tags' => true]);
 
         // clean up encode tag added by encoder
-        $xml = str_replace('<?xml version="1.0"?>', '', $xml);
+        $xml = str_replace('<?xml version="2.02"?>', '', $xml);
         $xml = str_replace('<rootnode>', '', $xml);
         $xml = str_replace('</rootnode>', '', $xml);
 

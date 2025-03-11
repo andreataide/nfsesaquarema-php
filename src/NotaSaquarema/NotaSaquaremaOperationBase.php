@@ -1,13 +1,13 @@
 <?php
 
-namespace NFSePHP\NotaCarioca;
+namespace NFSePHP\NotaSaquarema;
 
 use NFSePHP\XmlInterface;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 
-abstract class NotaCariocaOperationBase implements XmlInterface
+abstract class NotaSaquaremaOperationBase implements XmlInterface
 {
-    const BASE_ACTION_URL = 'http://notacarioca.rio.gov.br/';
+    const BASE_ACTION_URL = 'https://saquarema.govbr.cloud/NFSe.Portal/';
 
     /**
      * @var array
@@ -63,9 +63,9 @@ abstract class NotaCariocaOperationBase implements XmlInterface
      */
     public function getEndpointUrl(): string
     {
-        $subdomain = 'prod' != $this->env ? 'notacariocahom' : 'notacarioca';
 
-        return 'https://'.$subdomain.'.rio.gov.br/WSNacional/nfse.asmx';
+        return "https://saquarema.govbr.cloud/NFSe.Portal/";
+  
     }
 
     /**
@@ -98,7 +98,7 @@ abstract class NotaCariocaOperationBase implements XmlInterface
 
         $env = '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
             <soap:Body>
-                <'.$actionRequest.' xmlns="http://notacarioca.rio.gov.br/">
+                <'.$actionRequest.' xmlns="https://saquarema.govbr.cloud/NFSe.Portal/">
                     <inputXML>
                     <![CDATA[
                         PLACEHOLDER

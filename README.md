@@ -13,7 +13,7 @@ Lib to communicate with SOAP web services and generate NFS-e (Nota Fiscal de Ser
 # Install
 
 ```bash
-composer require andreataide/nfseSaquarema-php
+composer require andreataide/nfsesaquarema-php
 ```
 
 # Usage

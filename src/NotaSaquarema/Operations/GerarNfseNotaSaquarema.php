@@ -1,15 +1,15 @@
 <?php
 
-namespace NFSePHP\NotaCarioca\Operations;
+namespace NFSePHP\NotaSaquarema\Operations;
 
 use Garden\Schema\Schema;
 use Garden\Schema\ValidationException;
-use NFSePHP\NotaCarioca\NotaCariocaOperationBase;
+use NFSePHP\NotaSaquarema\NotaSaquaremaOperationBase;
 
 /**
  * Class to generate XML to the GerarNfse Web Service operation.
  */
-class GerarNfseNotaCarioca extends NotaCariocaOperationBase
+class GerarNfseNotaSaquarema extends NotaSaquaremaOperationBase
 {
     public function __construct(string $env = 'dev', array $rps = [])
     {
@@ -138,9 +138,9 @@ class GerarNfseNotaCarioca extends NotaCariocaOperationBase
         $xml = $this->getEncoder()->encode($rps, 'xml', ['xml_root_node_name' => 'Rps', 'remove_empty_tags' => true]);
 
         // clean up encode tag added by encoder
-        $xml = str_replace('<?xml version="1.0"?>', '', $xml);
+        $xml = str_replace('<?xml version="2.02"?>', '', $xml);
 
-        $content = '<GerarNfseEnvio xmlns="http://notacarioca.rio.gov.br/WSNacional/XSD/1/nfse_pcrj_v01.xsd">'.$xml.'</GerarNfseEnvio>';
+        $content = '<GerarNfseEnvio xmlns="https://saquarema.govbr.cloud/NFSe.Portal/">'.$xml.'</GerarNfseEnvio>';
 
         // Envelope request
         $this->addEnvelope($content);

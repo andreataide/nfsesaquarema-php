@@ -1,6 +1,6 @@
 <?php
 
-namespace NFSePHP\NotaCarioca;
+namespace NFSePHP\NotaSaquarema;
 
 use NFSePHP\SoapInterface;
 use NFSePHP\XmlInterface;
@@ -46,12 +46,12 @@ class SoapHandler implements SoapInterface
      *
      * @throws \Exception
      */
-    public function send(XmlInterface $notaCariocaFactory): string
+    public function send(XmlInterface $notaSaquaremaFactory): string
     {
-        $url = $notaCariocaFactory->getEndpointUrl();
-        $action = $notaCariocaFactory->getAction();
+        $url = $notaSaquaremaFactory->getEndpointUrl();
+        $action = $notaSaquaremaFactory->getAction();
 
-        $xml = $notaCariocaFactory->getEnvelopeXml();
+        $xml = $notaSaquaremaFactory->getEnvelopeXml();
         $msgSize = strlen($xml);
         $headers = ['Content-Type: text/xml;charset=UTF-8', "SOAPAction: \"$action\"", "Content-length: $msgSize"];
 
@@ -165,7 +165,7 @@ class SoapHandler implements SoapInterface
      */
     protected function extractContentFromResponse(string $response): string
     {
-        $dom = new \DomDocument('1.0', 'UTF-8');
+        $dom = new \DomDocument('2.02', 'UTF-8');
         $dom->loadXML($response);
 
         if (!empty($dom->getElementsByTagName('outputXML')->item(0))) {

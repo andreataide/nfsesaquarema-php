@@ -2,8 +2,8 @@
 
 require __DIR__.'/../../vendor/autoload.php';
 
-use NFSePHP\NotaCarioca\NotaCariocaOperationFactory;
-use NFSePHP\NotaCarioca\SoapHandler;
+use NFSePHP\NotaSaquarema\NotaSaquaremaOperationFactory;
+use NFSePHP\NotaSaquarema\SoapHandler;
 
 $rps = [
     'IdentificacaoRps' => [

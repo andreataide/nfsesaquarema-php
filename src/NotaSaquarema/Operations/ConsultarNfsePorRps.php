@@ -1,15 +1,15 @@
 <?php
 
-namespace NFSePHP\NotaCarioca\Operations;
+namespace NFSePHP\NotaSaquarema\Operations;
 
 use Garden\Schema\Schema;
 use Garden\Schema\ValidationException;
-use NFSePHP\NotaCarioca\NotaCariocaOperationBase;
+use NFSePHP\NotaSaquarema\NotaSaquaremaOperationBase;
 
 /**
- * Class to generate XML to the ConsultarNfse Web Service operation.
+ * Class to generate XML to the ConsultarNfsePorRps Web Service operation.
  */
-class CancelarNfse extends NotaCariocaOperationBase
+class ConsultarNfsePorRps extends NotaSaquaremaOperationBase
 {
     public function __construct(string $env = 'dev', array $rps = [])
     {
@@ -21,7 +21,7 @@ class CancelarNfse extends NotaCariocaOperationBase
      */
     public function getOperation(): string
     {
-        return 'CancelarNfse';
+        return 'ConsultarNfsePorRps';
     }
 
     /**
@@ -29,16 +29,11 @@ class CancelarNfse extends NotaCariocaOperationBase
      */
     public function formatSuccessResponse(string $responseXml): array
     {
-        $resp = $this->getEncoder()->decode($responseXml, '');
+        $resultArr = $this->getEncoder()->decode($responseXml, '');
 
-        if (isset($resp['Cancelamento']) and isset($resp['Cancelamento']['Confirmacao'])) {
-            return [
-                'DataHoraCancelamento' => $resp['Cancelamento']['Confirmacao']['DataHoraCancelamento'],
-                'Pedido' => $resp['Cancelamento']['Confirmacao']['@Id'],
-            ];
-        }
+        $responseArr['nfse'] = $resultArr['CompNfse']['Nfse']['InfNfse'];
 
-        return [];
+        return $responseArr;
     }
 
     /**
@@ -47,18 +42,9 @@ class CancelarNfse extends NotaCariocaOperationBase
     public function getSchemaStructure(): array
     {
         return [
-            'CancelarNfseEnvio' => [
-                'Pedido' => [
-                    'InfPedidoCancelamento' => [
-                        'IdentificacaoNfse' => [
-                            'Numero',
-                            'Cnpj',
-                            'InscricaoMunicipal',
-                            'CodigoMunicipio',
-                        ],
-                        'CodigoCancelamento',
-                    ],
-                ],
+            'ConsultarNfseRpsEnvio' => [
+                'IdentificacaoRps' => ['Numero', 'Serie', 'Tipo'],
+                'Prestador' => ['Cnpj', 'InscricaoMunicipal'],
             ],
         ];
     }
@@ -72,15 +58,10 @@ class CancelarNfse extends NotaCariocaOperationBase
         $structure = $this->getSchemaStructure();
 
         $rps = [
-            'CancelarNfseEnvio' => [
+            'ConsultarNfseRpsEnvio' => [
                 '@xmlns' => 'http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd',
-                'Pedido' => [
-                    '@xmlns' => 'http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd',
-                    'InfPedidoCancelamento' => [
-                        'IdentificacaoNfse' => $this->rps['IdentificacaoNfse'],
-                        'CodigoCancelamento' => $this->rps['CodigoCancelamento'],
-                    ],
-                ],
+                'IdentificacaoRps' => $this->rps['IdentificacaoRps'],
+                'Prestador' => $this->rps['Prestador'],
             ],
         ];
 
@@ -95,7 +76,7 @@ class CancelarNfse extends NotaCariocaOperationBase
         $xml = $this->getEncoder()->encode($rps, 'xml', ['xml_root_node_name' => 'rootnode', 'remove_empty_tags' => true]);
 
         // clean up encode tag added by encoder
-        $xml = str_replace('<?xml version="1.0"?>', '', $xml);
+        $xml = str_replace('<?xml version="2.02"?>', '', $xml);
         $xml = str_replace('<rootnode>', '', $xml);
         $xml = str_replace('</rootnode>', '', $xml);
 
