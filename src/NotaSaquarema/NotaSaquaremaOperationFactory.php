@@ -7,7 +7,7 @@ use NFSePHP\NotaSaquarema\Operations\ConsultarNfse;
 use NFSePHP\NotaSaquarema\Operations\ConsultarNfsePorRps;
 use NFSePHP\NotaSaquarema\Operations\GerarNfseNotaSaquarema;
 
-class NotaCariocaOperationFactory {
+class NotaCariocaSaquaremaFactory {
 
     public function createOperation(string $action = '', string $env = 'dev', array $rps = []) {
         switch($action)
