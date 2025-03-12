@@ -29,8 +29,8 @@ You must have a valid certificate to use NFSe staging environment.
 ### GerarNfse
 
 ```php
-use NFSePHP\NotaSaquarema\NotaSaquaremaFactory;
-use NFSePHP\NotaSaquarema\SoapHandler;
+use NotaSaquarema\NotaSaquaremaFactory;
+use NotaSaquarema\SoapHandler;
 
 $rps = [
     'IdentificacaoRps' => [
