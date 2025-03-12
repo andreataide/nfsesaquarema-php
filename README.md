@@ -1,3 +1,7 @@
+Developed from the NFSePHP project - Nota Carioca by Pedro Casado.
+https://github.com/pedrocasado/nfse-php
+
+
 # NFSePHP - Saquarema
 
 Lib to communicate with SOAP web services and generate NFS-e (Nota Fiscal de Serviços Eletrônica). Under development. Still not Working!
