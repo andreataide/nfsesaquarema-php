@@ -2,7 +2,7 @@
 
 namespace NotaSaquarema;
 
-use XmlInterface;
+use NotaSaquarema\XmlInterface;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 
 abstract class NotaSaquaremaOperationBase implements XmlInterface
