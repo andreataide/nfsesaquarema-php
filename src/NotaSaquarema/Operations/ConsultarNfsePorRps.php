@@ -1,10 +1,10 @@
 <?php
 
-namespace NFSePHP\NotaSaquarema\Operations;
+namespace NotaSaquarema\Operations;
 
 use Garden\Schema\Schema;
 use Garden\Schema\ValidationException;
-use NFSePHP\NotaSaquarema\NotaSaquaremaOperationBase;
+use NotaSaquarema\NotaSaquaremaOperationBase;
 
 /**
  * Class to generate XML to the ConsultarNfsePorRps Web Service operation.
