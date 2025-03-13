@@ -2,8 +2,8 @@
 
 namespace NotaSaquarema;
 
-use SoapInterface;
-use XmlInterface;
+use NotaSaquarema\SoapInterface;
+use NotaSaquarema\XmlInterface;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 
 class SoapHandler implements SoapInterface
