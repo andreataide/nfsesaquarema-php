@@ -1,11 +1,11 @@
 <?php
 
-namespace NFSePHP\NotaSaquarema;
+namespace NotaSaquarema;
 
-use NFSePHP\NotaSaquarema\Operations\CancelarNfse;
-use NFSePHP\NotaSaquarema\Operations\ConsultarNfse;
-use NFSePHP\NotaSaquarema\Operations\ConsultarNfsePorRps;
-use NFSePHP\NotaSaquarema\Operations\GerarNfseNotaSaquarema;
+use NotaSaquarema\Operations\CancelarNfse;
+use NotaSaquarema\Operations\ConsultarNfse;
+use NotaSaquarema\Operations\ConsultarNfsePorRps;
+use NotaSaquarema\Operations\GerarNfseNotaSaquarema;
 
 class NotaSaquaremaFactory {
 

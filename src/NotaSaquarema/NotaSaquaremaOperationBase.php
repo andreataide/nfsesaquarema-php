@@ -1,8 +1,8 @@
 <?php
 
-namespace NFSePHP\NotaSaquarema;
+namespace NotaSaquarema;
 
-use NFSePHP\XmlInterface;
+use XmlInterface;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 
 abstract class NotaSaquaremaOperationBase implements XmlInterface

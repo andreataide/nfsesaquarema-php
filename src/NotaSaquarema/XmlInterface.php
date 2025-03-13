@@ -1,6 +1,6 @@
 <?php
 
-namespace NFSePHP;
+namespace NotaSaquarema;
 
 interface XmlInterface
 {

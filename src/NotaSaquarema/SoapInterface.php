@@ -1,13 +1,13 @@
 <?php
 
-namespace NFSePHP;
+namespace NotaSaquarema;
 
 interface SoapInterface
 {
     /**
      * Send request to Web Service.
      *
-     * @param XmlInterface $notaCariocaFactory
+     * @param XmlInterface $notaSaquaremaFactory
      *
      * @return void
      */

@@ -1,9 +1,9 @@
 <?php
 
-namespace NFSePHP\NotaSaquarema;
+namespace NotaSaquarema;
 
-use NFSePHP\SoapInterface;
-use NFSePHP\XmlInterface;
+use SoapInterface;
+use XmlInterface;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 
 class SoapHandler implements SoapInterface
